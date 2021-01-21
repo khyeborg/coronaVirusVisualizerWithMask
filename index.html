@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Project #1</title>
+    <script src="p5/p5.js" type="text/javascript"></script>
+    <script src="p5/addons/p5.dom.js" type="text/javascript"></script>
+    <script src="p5/addons/p5.sound.js" type="text/javascript"></script>
+    <!-- <script src="main.js" defer></script> -->
+    
+   <script src="sketch.js" type="text/javascript" defer></script>
+
+    <!-- custom CSS -->
+    <style> 
+      body {
+        padding: 0; 
+        margin: 0;
+      }
+
+      #stats_div {
+        background-color: #555555;
+        color: white;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        padding: 10px;
+        display: flex;
+        text-align: center;
+      } 
+
+      .stats_sub_div {
+        width: 50%;
+        display: block;
+      }
+
+      .stats_sub_sub_div {
+        padding: 10px;
+      }
+
+      #controls_div {
+        background-color: #095087;
+        color: white;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        padding: 20px;
+        display: flex;
+        text-align: center;
+        padding-bottom: 15px;
+      } 
+
+      .controls_sub_div {
+        display: block;
+        width: 50%;
+      }
+
+      .input_div {
+        padding: 10px 0px;
+      }
+
+      .input_span {
+        display: inline-block;
+        width: 200px;
+        text-align: right;
+      }
+
+      input {
+        width: 40px;
+      }
+
+      ::placeholder { 
+        opacity: 0.8; 
+      }
+
+      /*.right_button {
+        margin-right: 130px;
+      }*/
+
+      #second_controls_sub_div {
+        /*margin-right: 50px;*/
+      }
+
+      canvas {
+    display: block;
+    margin: auto;
+    }
+
+    button {
+      /*background-color: #555555;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 12px;
+      font-family: Verdana, Arial, Helvetica, sans-serif;*/
+    }
+
+    #run_simulation_p_tag {
+      text-align: center;
+      background-color: #095087;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      padding-top: 0px;
+      padding-bottom: 20px;
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+    }
+    </style>
+
+  </head>
+
+  <body>
+    <div id="stats_div">
+      <div class="stats_sub_div">
+        <div class="stats_sub_sub_div"># of Uninfected Subjects: 
+          <span id="number_of_uninfected"></span>
+        </div>
+
+        <div class="stats_sub_sub_div"># of Infected Subjects: 
+          <span id="number_of_infected"></span>
+        </div>
+      </div>
+
+      <div class="stats_sub_div">
+        <div class="stats_sub_sub_div"># of Recovered Subjects: 
+          <span id="number_of_recovered"></span>
+        </div>
+
+        <div class="stats_sub_sub_div"># of Dead Subjects: 
+          <span id="number_of_dead"></span>
+        </div>
+      </div>
+    </div>
+    
+    <div id="sketch_holder">
+        <!-- Our sketch will go here! -->
+    </div>
+    <div id="controls_div">
+      <div class="controls_sub_div">
+        <div class="input_div">
+          <span class="input_span"># of Initial Uninfected:</span> <input type="text" value="1000" id="initialUninfected"> 
+        </div>
+
+        <div class="input_div">
+          <span class="input_span"># of Initial Infected:</span> <input type="text" value="5" id="initialInfected"> 
+        </div>
+      </div>
+
+      <div class="controls_sub_div" id="second_controls_sub_div">
+        <div class="input_div">
+          <span class="input_span">Rate of Infection:</span> <input type="text" value="50" id="rateOfInfection"> 
+        </div class="input_div">
+
+        <div class="input_div">
+          <span class="input_span">Mortality Rate:</span> <input type="text" value="20" id="mortalityRate"> 
+        </div>
+      </div>
+
+      <div class="controls_sub_div" id="second_controls_sub_div">
+        <div class="input_div">
+          <span class="input_span">Mask Rate:</span> <input type="text" value="50" id="maskRate"> 
+        </div class="input_div">
+
+        <div class="input_div">
+          <span class="input_span">Mask Decrease Factor:</span> <input type="text" value="0.5" id="maskDecreaseFactor"> 
+        </div>
+      </div>
+    </div>
+    <p id="run_simulation_p_tag"><button onclick="runSimulation();">Run Simulation</button></p>
+  </body>
+</html>
